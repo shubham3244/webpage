@@ -1,0 +1,39 @@
+<!-- <button routerLink="adduser">Add User</button> -->
+<form [formGroup] = Addform (ngSubmit)="onSubmit()">
+    <button type ="submit"  (click)="onSubmit"> Adduser</button>
+   
+</form> 
+<button (click)="exportExcel()"> exporttoexcel</button>
+<table>
+    <h1>Userlist</h1>
+    <h1> All users</h1>
+    <!-- <tr>
+        <th>#</th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Status</th>
+        <th>Action</th>
+    </tr> -->
+    <tr>
+        <th *ngFor="let col of columns">
+         <input type="checkbox" (change) = "checked($event,col)">  {{col}} 
+        </th>
+      </tr>
+     <tr *ngFor = "let userlist of data |  paginate: { itemsPerPage: pagesize, currentPage: curpage, totalItems: total}">
+        <td>{{userlist.id}}</td>
+        <td>{{userlist.first_name}}</td>
+        <td>{{userlist.last_name}}</td>
+        <td>{{userlist.user_email}}</td>
+        <td>{{userlist.user_role}}</td>
+       <td> 
+    
+            <button type ="submit"  (click)="onEditUser(userlist.id)"> Edituser</button>
+      
+       
+       </td>
+    </tr>
+</table>
+<pagination-controls  (pageChange)="ongetusers($event)"></pagination-controls>
+

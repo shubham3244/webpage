@@ -1,0 +1,22 @@
+
+<form [formGroup] = EditForm (ngSubmit)="onSubmit()" >
+    <label for="firstname">First Name :</label>
+    <input type="text" name="firstname" formControlName ="first_name">  <br> <br>
+    <label for="lastname">LastName :</label>
+    <input type="text" name="lastname" formControlName ="last_name" >  <br> <br>
+    <label for="Email">Email:</label>
+    <input type="email" name="Email"c ="user_email" formControlName = "user_email">  <br> <br>
+  
+    <label for="notify">isNotify :</label>
+    <input type="checkbox" id="notify" name="notify" value="isnotify" formControlName="isnotify" > <br>
+    <select name="usertype" id="usertype" formControlName ="user_role">
+        <option value="">Select User type</option>
+        <option value="admin">Admin</option>
+        <option value="sales">Sales</option>
+        <option value="cloud">Cloud</option>
+      </select> 
+      <br>
+      <button type ="submit"  (click)="onSubmit()"> Update User</button>
+      <button type ="submit"  (click)="onSubmit()"> Cancel
+      </button>
+</form>
